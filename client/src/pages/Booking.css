@@ -1,0 +1,123 @@
+.booking-page {
+  min-height: calc(100vh - 70px);
+  padding: 40px 0;
+}
+
+.booking-info {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.booking-info h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.seat-map-container {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.screen {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.row-label {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 12px;
+}
+
+.seat:hover:not(.booked):not(.locked) {
+  background: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.seat.selected {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: white;
+}
+
+.seat.booked {
+  background: #f44336;
+  border-color: #f44336;
+  color: white;
+  cursor: not-allowed;
+}
+
+.seat.locked {
+  background: #ff9800;
+  border-color: #ff9800;
+  cursor: not-allowed;
+}
+
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-item .seat {
+  cursor: default;
+}
+
+.booking-summary {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.booking-summary h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.booking-summary button {
+  margin-top: 20px;
+}
+

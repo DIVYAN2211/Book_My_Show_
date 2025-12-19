@@ -1,0 +1,126 @@
+.movie-detail {
+  min-height: calc(100vh - 70px);
+  padding: 40px 0;
+}
+
+.movie-header {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.movie-poster-large {
+  width: 100%;
+  height: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.movie-poster-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-details h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.movie-meta {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.movie-rating {
+  font-size: 20px;
+  color: #f84464;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.movie-description {
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.movie-release {
+  color: #666;
+}
+
+.booking-section {
+  margin-top: 40px;
+}
+
+.booking-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.city-selector {
+  margin-bottom: 30px;
+}
+
+.city-selector label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.shows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.show-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.show-info h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.show-info p {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.show-time {
+  text-align: right;
+}
+
+.show-time .time {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f84464;
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .movie-header {
+    grid-template-columns: 1fr;
+  }
+
+  .show-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .show-time {
+    text-align: left;
+    margin-top: 15px;
+  }
+}
+

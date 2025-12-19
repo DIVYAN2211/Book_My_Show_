@@ -1,0 +1,23 @@
+.movies-page {
+  min-height: calc(100vh - 70px);
+  padding: 40px 0;
+}
+
+.movies-page h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}
+
