@@ -6,11 +6,11 @@ const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState('movies');
   const [movies, setMovies] = useState([]);
   const [theatres, setTheatres] = useState([]);
-  const [shows, setShows] = useState([]);
 
   useEffect(() => {
     if (activeTab === 'movies') fetchMovies();
     if (activeTab === 'theatres') fetchTheatres();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const fetchMovies = async () => {

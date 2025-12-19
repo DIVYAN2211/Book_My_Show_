@@ -22,6 +22,7 @@ const MovieDetail = () => {
     if (selectedCity && movie) {
       fetchShows();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCity, movie]);
 
   const fetchMovie = async () => {

@@ -41,6 +41,7 @@ const Booking = () => {
       socket.off('seat-selected');
       socket.off('seat-released');
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showId, user]);
 
   const fetchShow = async () => {
