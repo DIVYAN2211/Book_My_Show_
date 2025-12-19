@@ -1,7 +1,7 @@
-import Show from '../../server/models/Show';
-import mongoose from 'mongoose';
+const Show = require('../../server/models/Show');
+const mongoose = require('mongoose');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     // Connect to MongoDB
     if (mongoose.connection.readyState === 0) {
@@ -45,4 +45,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};

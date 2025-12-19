@@ -1,7 +1,7 @@
-import Movie from '../../server/models/Movie';
-import mongoose from 'mongoose';
+const Movie = require('../../server/models/Movie');
+const mongoose = require('mongoose');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     // Connect to MongoDB
     if (mongoose.connection.readyState === 0) {
@@ -27,4 +27,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};

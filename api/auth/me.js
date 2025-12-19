@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
-import User from '../../server/models/User';
-import mongoose from 'mongoose';
+const jwt = require('jsonwebtoken');
+const User = require('../../server/models/User');
+const mongoose = require('mongoose');
 
 async function authMiddleware(req, res) {
   try {
@@ -19,7 +19,7 @@ async function authMiddleware(req, res) {
   }
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -42,4 +42,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};

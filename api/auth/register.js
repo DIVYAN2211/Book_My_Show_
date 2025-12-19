@@ -1,9 +1,8 @@
-import jwt from 'jsonwebtoken';
-import { body, validationResult } from 'express-validator';
-import User from '../../server/models/User';
-import mongoose from 'mongoose';
+const jwt = require('jsonwebtoken');
+const User = require('../../server/models/User');
+const mongoose = require('mongoose');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -61,4 +60,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};

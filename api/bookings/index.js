@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
-import Booking from '../../../server/models/Booking';
-import Show from '../../../server/models/Show';
-import User from '../../../server/models/User';
-import mongoose from 'mongoose';
+const jwt = require('jsonwebtoken');
+const Booking = require('../../server/models/Booking');
+const Show = require('../../server/models/Show');
+const User = require('../../server/models/User');
+const mongoose = require('mongoose');
 
 async function authMiddleware(req) {
   try {
@@ -17,7 +17,7 @@ async function authMiddleware(req) {
   }
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     // Connect to MongoDB
     if (mongoose.connection.readyState === 0) {
@@ -98,4 +98,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};
