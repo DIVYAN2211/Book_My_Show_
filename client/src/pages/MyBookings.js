@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext';
 import './MyBookings.css';
 
 const MyBookings = () => {
-  const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 

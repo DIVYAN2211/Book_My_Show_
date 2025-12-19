@@ -12,7 +12,8 @@ const Home = () => {
   useEffect(() => {
     fetchMovies();
     fetchCities();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCity]);
 
   const fetchMovies = async () => {
     try {
