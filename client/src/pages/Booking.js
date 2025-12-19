@@ -5,7 +5,8 @@ import io from 'socket.io-client';
 import { useAuth } from '../context/AuthContext';
 import './Booking.css';
 
-const socket = io('http://localhost:5000');
+// Only connect to socket in development
+const socket = process.env.NODE_ENV === 'development' ? io('http://localhost:5000') : null;
 
 const Booking = () => {
   const { id: showId } = useParams();
@@ -21,26 +22,28 @@ const Booking = () => {
   useEffect(() => {
     fetchShow();
 
-    socket.on('seat-selected', (data) => {
-      if (data.showId === showId && data.userId !== user?.id) {
-        setLockedSeats(prev => new Set([...prev, data.seatId]));
-      }
-    });
+    if (socket) {
+      socket.on('seat-selected', (data) => {
+        if (data.showId === showId && data.userId !== user?.id) {
+          setLockedSeats(prev => new Set([...prev, data.seatId]));
+        }
+      });
 
-    socket.on('seat-released', (data) => {
-      if (data.showId === showId) {
-        setLockedSeats(prev => {
-          const newSet = new Set(prev);
-          newSet.delete(data.seatId);
-          return newSet;
-        });
-      }
-    });
+      socket.on('seat-released', (data) => {
+        if (data.showId === showId) {
+          setLockedSeats(prev => {
+            const newSet = new Set(prev);
+            newSet.delete(data.seatId);
+            return newSet;
+          });
+        }
+      });
 
-    return () => {
-      socket.off('seat-selected');
-      socket.off('seat-released');
-    };
+      return () => {
+        socket.off('seat-selected');
+        socket.off('seat-released');
+      };
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showId, user]);
 
